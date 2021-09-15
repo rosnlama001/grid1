@@ -1,0 +1,74 @@
+:root{
+    --main-radius:5px;
+    --main-padding:5px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cont{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: .2fr 1fr;
+    grid-template-rows: auto auto 1fr auto ;
+    grid-template-areas: var(--format,"header header"
+    "nav nav"
+    "sidebar main"
+    "adds footer");
+    grid-gap: .3rem;
+    padding: 5px;
+}
+.header{
+    grid-area: header;
+    background: #79B4B7;
+    border-radius: var(--main-radius);
+    padding: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navBar{
+    grid-area: nav;
+    background: #BFD8B8;
+    border-radius: var(--main-radius);
+    padding: var(--main-padding);
+    display: flex; 
+}
+.navBar .menu{
+    flex-basis:48%;
+    padding-left: 10px;
+}
+.sidebar{
+    grid-area: sidebar;
+    background: #6F69AC;
+    border-radius: var(--main-radius);
+    padding: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    grid-area: main;
+    background: #80ED99;
+    border-radius: var(--main-radius);
+    padding: var(--main-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navbar Hide and show */
+.menu i.active::before{
+    content: "\f00d";
+}
+.cont.active{
+    --format:"header header"
+    "nav nav"
+    "main main"
+    "adds footer";
+}
+.sidebar.active{
+    display: none;
+}
